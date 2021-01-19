@@ -77,9 +77,49 @@ const ProfileSchema = new Schema({
            fieldOfStudy: {
                type: String,
                required: true
-           }
+           },
+           location: {
+            type: String,
+        },
+        from: {
+            type: Date,
+            required: true
+        },
+        to: { //not making it (required: true) since this could be their current job
+            type: Date
+        },
+        current: {
+            type: Boolean,
+            default: false //default value if false: UI checkbox is unticked, by default
+        },
+        description: {
+            type: String
         }
-    ]
-
-    
+        }
+    ],
+    social: [
+        {
+            youtube: {
+                type: String,
+            },
+            twitter: {
+                type: String,
+            },
+            facebook: {
+                type: String,
+            },
+            instagram: {
+                type: String,
+            },
+            linkedin: {
+                type: String,
+            }
+        }
+    ],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
+
+module.exports = Profile = mongoose.model('profile', ProfileSchema);
