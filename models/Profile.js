@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
+    user: { //we will refer 'users' schema as a property in Profile schema
+        type: Schema.Types.ObjectId, //associate user with id
         ref: 'users'
     },
     handle: {
